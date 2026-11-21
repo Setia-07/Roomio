@@ -16,7 +16,7 @@ abstract class LifestyleProfile
     implements _isc.SerializableModel, _isc.ProtocolSerialization {
   LifestyleProfile._({
     this.id,
-    required this.name,
+    required this.roomCode,
     required this.sleepSchedule,
     required this.noiseLevel,
     required this.cleanliness,
@@ -25,7 +25,7 @@ abstract class LifestyleProfile
 
   factory LifestyleProfile({
     int? id,
-    required String name,
+    required String roomCode,
     required String sleepSchedule,
     required String noiseLevel,
     required String cleanliness,
@@ -35,7 +35,7 @@ abstract class LifestyleProfile
   factory LifestyleProfile.fromJson(Map<String, dynamic> jsonSerialization) {
     return LifestyleProfile(
       id: jsonSerialization['id'] as int?,
-      name: jsonSerialization['name'] as String,
+      roomCode: jsonSerialization['roomCode'] as String,
       sleepSchedule: jsonSerialization['sleepSchedule'] as String,
       noiseLevel: jsonSerialization['noiseLevel'] as String,
       cleanliness: jsonSerialization['cleanliness'] as String,
@@ -48,7 +48,7 @@ abstract class LifestyleProfile
   /// the id will be null.
   int? id;
 
-  String name;
+  String roomCode;
 
   String sleepSchedule;
 
@@ -63,7 +63,7 @@ abstract class LifestyleProfile
   @_isc.useResult
   LifestyleProfile copyWith({
     int? id,
-    String? name,
+    String? roomCode,
     String? sleepSchedule,
     String? noiseLevel,
     String? cleanliness,
@@ -74,7 +74,7 @@ abstract class LifestyleProfile
     return {
       '__className__': 'LifestyleProfile',
       if (id != null) 'id': id,
-      'name': name,
+      'roomCode': roomCode,
       'sleepSchedule': sleepSchedule,
       'noiseLevel': noiseLevel,
       'cleanliness': cleanliness,
@@ -87,7 +87,7 @@ abstract class LifestyleProfile
     return {
       '__className__': 'LifestyleProfile',
       if (id != null) 'id': id,
-      'name': name,
+      'roomCode': roomCode,
       'sleepSchedule': sleepSchedule,
       'noiseLevel': noiseLevel,
       'cleanliness': cleanliness,
@@ -106,14 +106,14 @@ class _Undefined {}
 class _LifestyleProfileImpl extends LifestyleProfile {
   _LifestyleProfileImpl({
     int? id,
-    required String name,
+    required String roomCode,
     required String sleepSchedule,
     required String noiseLevel,
     required String cleanliness,
     required int budget,
   }) : super._(
          id: id,
-         name: name,
+         roomCode: roomCode,
          sleepSchedule: sleepSchedule,
          noiseLevel: noiseLevel,
          cleanliness: cleanliness,
@@ -126,7 +126,7 @@ class _LifestyleProfileImpl extends LifestyleProfile {
   @override
   LifestyleProfile copyWith({
     Object? id = _Undefined,
-    String? name,
+    String? roomCode,
     String? sleepSchedule,
     String? noiseLevel,
     String? cleanliness,
@@ -134,7 +134,7 @@ class _LifestyleProfileImpl extends LifestyleProfile {
   }) {
     return LifestyleProfile(
       id: id is int? ? id : this.id,
-      name: name ?? this.name,
+      roomCode: roomCode ?? this.roomCode,
       sleepSchedule: sleepSchedule ?? this.sleepSchedule,
       noiseLevel: noiseLevel ?? this.noiseLevel,
       cleanliness: cleanliness ?? this.cleanliness,

@@ -1,0 +1,5 @@
+class: MatchResult
+fields:
+  otherProfile: LifestyleProfile
+  score: int
+  reasons: List<String>

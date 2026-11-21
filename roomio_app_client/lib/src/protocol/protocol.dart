@@ -11,17 +11,13 @@
 // ignore_for_file: dead_code, unnecessary_type_check
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:roomio_app_client/src/protocol/profiles/lifestyle_profile.dart'
-    as _ipqw7y5c;
-import 'package:serverpod_auth_core_client/serverpod_auth_core_client.dart'
-    as _iacc;
-import 'package:serverpod_auth_idp_client/serverpod_auth_idp_client.dart'
-    as _iaic;
 import 'package:serverpod_client/serverpod_client.dart' as _isc;
 import 'greetings/greeting.dart' as _izw8z7ou;
 import 'profiles/lifestyle_profile.dart' as _ix1v43sa;
+import 'profiles/match_result.dart' as _i0x7awnx;
 export 'greetings/greeting.dart';
 export 'profiles/lifestyle_profile.dart';
+export 'profiles/match_result.dart';
 export 'client.dart';
 
 class Protocol extends _isc.SerializationManager
@@ -30,7 +26,7 @@ class Protocol extends _isc.SerializationManager
 
   factory Protocol() => _instance;
 
-  static final Protocol _instance = Protocol._().._registerHostProtocols();
+  static final Protocol _instance = Protocol._();
 
   @override
   _isc.ProtocolDeserialization get deserializationMetadata =>
@@ -39,17 +35,17 @@ class Protocol extends _isc.SerializationManager
         types: const [
           _isc.getType<_izw8z7ou.Greeting>,
           _isc.getType<_ix1v43sa.LifestyleProfile>,
+          _isc.getType<_i0x7awnx.MatchResult>,
           _isc.getType<_izw8z7ou.Greeting?>,
           _isc.getType<_ix1v43sa.LifestyleProfile?>,
-          _isc.getType<List<_ipqw7y5c.LifestyleProfile>>,
+          _isc.getType<_i0x7awnx.MatchResult?>,
+          _isc.getType<List<String>>,
         ],
-        modules: const [
-          _iaic.Protocol.new,
-          _iacc.Protocol.new,
-        ],
+        modules: const [],
         classNames: const [
           'Greeting',
           'LifestyleProfile',
+          'MatchResult',
         ],
       );
 
@@ -83,6 +79,9 @@ class Protocol extends _isc.SerializationManager
     if (t == _ix1v43sa.LifestyleProfile) {
       return _ix1v43sa.LifestyleProfile.fromJson(data) as T;
     }
+    if (t == _i0x7awnx.MatchResult) {
+      return _i0x7awnx.MatchResult.fromJson(data) as T;
+    }
     if (t == _isc.getType<_izw8z7ou.Greeting?>()) {
       return (data != null ? _izw8z7ou.Greeting.fromJson(data) : null) as T;
     }
@@ -90,22 +89,12 @@ class Protocol extends _isc.SerializationManager
       return (data != null ? _ix1v43sa.LifestyleProfile.fromJson(data) : null)
           as T;
     }
-    if (t == List<_ipqw7y5c.LifestyleProfile>) {
-      return (data as List)
-              .map((e) => deserialize<_ipqw7y5c.LifestyleProfile>(e))
-              .toList()
-          as T;
+    if (t == _isc.getType<_i0x7awnx.MatchResult?>()) {
+      return (data != null ? _i0x7awnx.MatchResult.fromJson(data) : null) as T;
     }
-    final modules = deserializationMetadata.modulesForDeserialization(
-      t,
-      className: rawDataClassName,
-    );
-    for (final module in modules) {
-      try {
-        return module.deserialize<T>(data, t);
-      } on _isc.DeserializationTypeNotFoundException catch (_) {}
+    if (t == List<String>) {
+      return (data as List).map((e) => deserialize<String>(e)).toList() as T;
     }
-
     return super.deserialize<T>(data, t);
   }
 
@@ -113,6 +102,7 @@ class Protocol extends _isc.SerializationManager
     return switch (type) {
       _izw8z7ou.Greeting => 'Greeting',
       _ix1v43sa.LifestyleProfile => 'LifestyleProfile',
+      _i0x7awnx.MatchResult => 'MatchResult',
       _ => null,
     };
   }
@@ -131,18 +121,8 @@ class Protocol extends _isc.SerializationManager
         return 'Greeting';
       case _ix1v43sa.LifestyleProfile():
         return 'LifestyleProfile';
-    }
-    className = _iaic.Protocol().getClassNameForObject(data);
-    if (className != null) {
-      return className.contains('.')
-          ? className
-          : 'serverpod_auth_idp.$className';
-    }
-    className = _iacc.Protocol().getClassNameForObject(data);
-    if (className != null) {
-      return className.contains('.')
-          ? className
-          : 'serverpod_auth_core.$className';
+      case _i0x7awnx.MatchResult():
+        return 'MatchResult';
     }
     return null;
   }
@@ -159,24 +139,10 @@ class Protocol extends _isc.SerializationManager
     if (dataClassName == 'LifestyleProfile') {
       return deserialize<_ix1v43sa.LifestyleProfile>(data['data']);
     }
-    if (dataClassName.startsWith('serverpod_auth_idp.')) {
-      return _iaic.Protocol().deserializeByClassName({
-        ...data,
-        'className': dataClassName.substring(19),
-      });
-    }
-    if (dataClassName.startsWith('serverpod_auth_core.')) {
-      return _iacc.Protocol().deserializeByClassName({
-        ...data,
-        'className': dataClassName.substring(20),
-      });
+    if (dataClassName == 'MatchResult') {
+      return deserialize<_i0x7awnx.MatchResult>(data['data']);
     }
     return super.deserializeByClassName(data);
-  }
-
-  void _registerHostProtocols() {
-    _iaic.Protocol().registerHostProtocol('roomio_app', this);
-    _iacc.Protocol().registerHostProtocol('roomio_app', this);
   }
 
   @override
@@ -191,12 +157,6 @@ class Protocol extends _isc.SerializationManager
     if (record == null) {
       return null;
     }
-    try {
-      return _iaic.Protocol().mapRecordToJson(record);
-    } catch (_) {}
-    try {
-      return _iacc.Protocol().mapRecordToJson(record);
-    } catch (_) {}
     throw Exception('Unsupported record type ${record.runtimeType}');
   }
 }

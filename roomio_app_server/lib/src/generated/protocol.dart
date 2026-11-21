@@ -11,18 +11,14 @@
 // ignore_for_file: dead_code, unnecessary_type_check
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:roomio_app_server/src/generated/profiles/lifestyle_profile.dart'
-    as _ismhqhpa;
 import 'package:serverpod/protocol.dart' as _isp;
 import 'package:serverpod/serverpod.dart' as _is;
-import 'package:serverpod_auth_core_server/serverpod_auth_core_server.dart'
-    as _iacs;
-import 'package:serverpod_auth_idp_server/serverpod_auth_idp_server.dart'
-    as _iais;
 import 'greetings/greeting.dart' as _izw8z7ou;
 import 'profiles/lifestyle_profile.dart' as _ix1v43sa;
+import 'profiles/match_result.dart' as _i0x7awnx;
 export 'greetings/greeting.dart';
 export 'profiles/lifestyle_profile.dart';
+export 'profiles/match_result.dart';
 
 class Protocol extends _is.DatabaseSerializationManager
     implements _is.DatabaseProtocolDeserializationProvider {
@@ -30,7 +26,7 @@ class Protocol extends _is.DatabaseSerializationManager
 
   factory Protocol() => _instance;
 
-  static final Protocol _instance = Protocol._().._registerHostProtocols();
+  static final Protocol _instance = Protocol._();
 
   @override
   _is.ProtocolDeserialization get deserializationMetadata =>
@@ -39,25 +35,22 @@ class Protocol extends _is.DatabaseSerializationManager
         types: const [
           _is.getType<_izw8z7ou.Greeting>,
           _is.getType<_ix1v43sa.LifestyleProfile>,
+          _is.getType<_i0x7awnx.MatchResult>,
           _is.getType<_izw8z7ou.Greeting?>,
           _is.getType<_ix1v43sa.LifestyleProfile?>,
-          _is.getType<List<_ismhqhpa.LifestyleProfile>>,
+          _is.getType<_i0x7awnx.MatchResult?>,
+          _is.getType<List<String>>,
         ],
-        modules: const [
-          _iais.Protocol.new,
-          _iacs.Protocol.new,
-          _isp.Protocol.new,
-        ],
+        modules: const [_isp.Protocol.new],
         classNames: const [
           'Greeting',
           'LifestyleProfile',
+          'MatchResult',
         ],
       );
 
   static List<_isp.TableDefinition> get targetTableDefinitions => [
     ..._ownTableDefinitions,
-    ..._iais.Protocol().getOwnTableDefinitions(),
-    ..._iacs.Protocol().getOwnTableDefinitions(),
     ..._isp.Protocol.targetTableDefinitions,
   ];
 
@@ -76,7 +69,7 @@ class Protocol extends _is.DatabaseSerializationManager
           columnDefault: 'serial',
         ),
         _isp.ColumnDefinition(
-          name: 'name',
+          name: 'roomCode',
           columnType: _isp.ColumnType.text,
           isNullable: false,
           dartType: 'String',
@@ -142,6 +135,9 @@ class Protocol extends _is.DatabaseSerializationManager
     if (t == _ix1v43sa.LifestyleProfile) {
       return _ix1v43sa.LifestyleProfile.fromJson(data) as T;
     }
+    if (t == _i0x7awnx.MatchResult) {
+      return _i0x7awnx.MatchResult.fromJson(data) as T;
+    }
     if (t == _is.getType<_izw8z7ou.Greeting?>()) {
       return (data != null ? _izw8z7ou.Greeting.fromJson(data) : null) as T;
     }
@@ -149,11 +145,11 @@ class Protocol extends _is.DatabaseSerializationManager
       return (data != null ? _ix1v43sa.LifestyleProfile.fromJson(data) : null)
           as T;
     }
-    if (t == List<_ismhqhpa.LifestyleProfile>) {
-      return (data as List)
-              .map((e) => deserialize<_ismhqhpa.LifestyleProfile>(e))
-              .toList()
-          as T;
+    if (t == _is.getType<_i0x7awnx.MatchResult?>()) {
+      return (data != null ? _i0x7awnx.MatchResult.fromJson(data) : null) as T;
+    }
+    if (t == List<String>) {
+      return (data as List).map((e) => deserialize<String>(e)).toList() as T;
     }
     final modules = deserializationMetadata.modulesForDeserialization(
       t,
@@ -172,6 +168,7 @@ class Protocol extends _is.DatabaseSerializationManager
     return switch (type) {
       _izw8z7ou.Greeting => 'Greeting',
       _ix1v43sa.LifestyleProfile => 'LifestyleProfile',
+      _i0x7awnx.MatchResult => 'MatchResult',
       _ => null,
     };
   }
@@ -190,18 +187,8 @@ class Protocol extends _is.DatabaseSerializationManager
         return 'Greeting';
       case _ix1v43sa.LifestyleProfile():
         return 'LifestyleProfile';
-    }
-    className = _iais.Protocol().getClassNameForObject(data);
-    if (className != null) {
-      return className.contains('.')
-          ? className
-          : 'serverpod_auth_idp.$className';
-    }
-    className = _iacs.Protocol().getClassNameForObject(data);
-    if (className != null) {
-      return className.contains('.')
-          ? className
-          : 'serverpod_auth_core.$className';
+      case _i0x7awnx.MatchResult():
+        return 'MatchResult';
     }
     className = _isp.Protocol().getClassNameForObject(data);
     if (className != null) {
@@ -222,17 +209,8 @@ class Protocol extends _is.DatabaseSerializationManager
     if (dataClassName == 'LifestyleProfile') {
       return deserialize<_ix1v43sa.LifestyleProfile>(data['data']);
     }
-    if (dataClassName.startsWith('serverpod_auth_idp.')) {
-      return _iais.Protocol().deserializeByClassName({
-        ...data,
-        'className': dataClassName.substring(19),
-      });
-    }
-    if (dataClassName.startsWith('serverpod_auth_core.')) {
-      return _iacs.Protocol().deserializeByClassName({
-        ...data,
-        'className': dataClassName.substring(20),
-      });
+    if (dataClassName == 'MatchResult') {
+      return deserialize<_i0x7awnx.MatchResult>(data['data']);
     }
     if (dataClassName.startsWith('serverpod.')) {
       return _isp.Protocol().deserializeByClassName({
@@ -243,25 +221,8 @@ class Protocol extends _is.DatabaseSerializationManager
     return super.deserializeByClassName(data);
   }
 
-  void _registerHostProtocols() {
-    _iais.Protocol().registerHostProtocol('roomio_app', this);
-    _iacs.Protocol().registerHostProtocol('roomio_app', this);
-  }
-
   @override
   _is.Table? getTableForType(Type t) {
-    {
-      var table = _iais.Protocol().getTableForType(t);
-      if (table != null) {
-        return table;
-      }
-    }
-    {
-      var table = _iacs.Protocol().getTableForType(t);
-      if (table != null) {
-        return table;
-      }
-    }
     {
       var table = _isp.Protocol().getTableForType(t);
       if (table != null) {
@@ -295,10 +256,7 @@ class Protocol extends _is.DatabaseSerializationManager
       return null;
     }
     try {
-      return _iais.Protocol().mapRecordToJson(record);
-    } catch (_) {}
-    try {
-      return _iacs.Protocol().mapRecordToJson(record);
+      return _isp.Protocol().mapRecordToJson(record);
     } catch (_) {}
     throw Exception('Unsupported record type ${record.runtimeType}');
   }

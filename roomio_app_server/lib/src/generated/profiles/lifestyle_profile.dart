@@ -17,7 +17,7 @@ abstract class LifestyleProfile
     implements _is.TableRow<int?>, _is.ProtocolSerialization {
   LifestyleProfile._({
     this.id,
-    required this.name,
+    required this.roomCode,
     required this.sleepSchedule,
     required this.noiseLevel,
     required this.cleanliness,
@@ -26,7 +26,7 @@ abstract class LifestyleProfile
 
   factory LifestyleProfile({
     int? id,
-    required String name,
+    required String roomCode,
     required String sleepSchedule,
     required String noiseLevel,
     required String cleanliness,
@@ -36,7 +36,7 @@ abstract class LifestyleProfile
   factory LifestyleProfile.fromJson(Map<String, dynamic> jsonSerialization) {
     return LifestyleProfile(
       id: jsonSerialization['id'] as int?,
-      name: jsonSerialization['name'] as String,
+      roomCode: jsonSerialization['roomCode'] as String,
       sleepSchedule: jsonSerialization['sleepSchedule'] as String,
       noiseLevel: jsonSerialization['noiseLevel'] as String,
       cleanliness: jsonSerialization['cleanliness'] as String,
@@ -51,7 +51,7 @@ abstract class LifestyleProfile
   @override
   int? id;
 
-  String name;
+  String roomCode;
 
   String sleepSchedule;
 
@@ -69,7 +69,7 @@ abstract class LifestyleProfile
   @_is.useResult
   LifestyleProfile copyWith({
     int? id,
-    String? name,
+    String? roomCode,
     String? sleepSchedule,
     String? noiseLevel,
     String? cleanliness,
@@ -80,7 +80,7 @@ abstract class LifestyleProfile
     return {
       '__className__': 'LifestyleProfile',
       if (id != null) 'id': id,
-      'name': name,
+      'roomCode': roomCode,
       'sleepSchedule': sleepSchedule,
       'noiseLevel': noiseLevel,
       'cleanliness': cleanliness,
@@ -93,7 +93,7 @@ abstract class LifestyleProfile
     return {
       '__className__': 'LifestyleProfile',
       if (id != null) 'id': id,
-      'name': name,
+      'roomCode': roomCode,
       'sleepSchedule': sleepSchedule,
       'noiseLevel': noiseLevel,
       'cleanliness': cleanliness,
@@ -134,14 +134,14 @@ class _Undefined {}
 class _LifestyleProfileImpl extends LifestyleProfile {
   _LifestyleProfileImpl({
     int? id,
-    required String name,
+    required String roomCode,
     required String sleepSchedule,
     required String noiseLevel,
     required String cleanliness,
     required int budget,
   }) : super._(
          id: id,
-         name: name,
+         roomCode: roomCode,
          sleepSchedule: sleepSchedule,
          noiseLevel: noiseLevel,
          cleanliness: cleanliness,
@@ -154,7 +154,7 @@ class _LifestyleProfileImpl extends LifestyleProfile {
   @override
   LifestyleProfile copyWith({
     Object? id = _Undefined,
-    String? name,
+    String? roomCode,
     String? sleepSchedule,
     String? noiseLevel,
     String? cleanliness,
@@ -162,7 +162,7 @@ class _LifestyleProfileImpl extends LifestyleProfile {
   }) {
     return LifestyleProfile(
       id: id is int? ? id : this.id,
-      name: name ?? this.name,
+      roomCode: roomCode ?? this.roomCode,
       sleepSchedule: sleepSchedule ?? this.sleepSchedule,
       noiseLevel: noiseLevel ?? this.noiseLevel,
       cleanliness: cleanliness ?? this.cleanliness,
@@ -175,8 +175,8 @@ class LifestyleProfileUpdateTable
     extends _is.UpdateTable<LifestyleProfileTable> {
   LifestyleProfileUpdateTable(super.table);
 
-  _is.ColumnValue<String, String> name(String value) => _is.ColumnValue(
-    table.name,
+  _is.ColumnValue<String, String> roomCode(String value) => _is.ColumnValue(
+    table.roomCode,
     value,
   );
 
@@ -206,8 +206,8 @@ class LifestyleProfileTable extends _is.Table<int?> {
   LifestyleProfileTable({super.tableRelation})
     : super(tableName: 'lifestyle_profile') {
     updateTable = LifestyleProfileUpdateTable(this);
-    name = _is.ColumnString(
-      'name',
+    roomCode = _is.ColumnString(
+      'roomCode',
       this,
     );
     sleepSchedule = _is.ColumnString(
@@ -230,7 +230,7 @@ class LifestyleProfileTable extends _is.Table<int?> {
 
   late final LifestyleProfileUpdateTable updateTable;
 
-  late final _is.ColumnString name;
+  late final _is.ColumnString roomCode;
 
   late final _is.ColumnString sleepSchedule;
 
@@ -243,7 +243,7 @@ class LifestyleProfileTable extends _is.Table<int?> {
   @override
   List<_is.Column> get columns => [
     id,
-    name,
+    roomCode,
     sleepSchedule,
     noiseLevel,
     cleanliness,

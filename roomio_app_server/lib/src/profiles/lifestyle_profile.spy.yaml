@@ -1,7 +1,7 @@
 class: LifestyleProfile
 table: lifestyle_profile
 fields:
-  name: String
+  roomCode: String
   sleepSchedule: String
   noiseLevel: String
   cleanliness: String
