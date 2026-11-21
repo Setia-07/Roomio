@@ -1,0 +1,11 @@
+name: _
+publish_to: none
+
+environment:
+  sdk: '^3.12.2'
+
+workspace:
+  - roomio_app_client
+  - roomio_app_server
+  - roomio_app_flutter
+

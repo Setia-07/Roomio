@@ -1,0 +1,44 @@
+services:
+  # Development services
+  postgres:
+    image: ghcr.io/serverpod/postgres:16
+    ports:
+      - "8090:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: roomio_app
+      POSTGRES_PASSWORD: "4-8J7USlMW8kmgtMAY5VPHMJEmG9rM4U"
+    volumes:
+      - roomio_app_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:6.2.6
+    ports:
+      - "8091:6379"
+    command: redis-server --requirepass "XQXtjTTiroQXRvCrQcscOe-qfm5LDnDh"
+    environment:
+      - REDIS_REPLICATION_MODE=master
+
+  # Test services
+  postgres_test:
+    image: ghcr.io/serverpod/postgres:16
+    ports:
+      - "9090:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: roomio_app_test
+      POSTGRES_PASSWORD: "G63OyhS3O5E7bNvR131hlrrRX1ZM62Za"
+    volumes:
+      - roomio_app_test_data:/var/lib/postgresql/data
+
+  redis_test:
+    image: redis:6.2.6
+    ports:
+      - "9091:6379"
+    command: redis-server --requirepass "TD0eJog0_56PefB_Ap7AhSw0Gl18zgaU"
+    environment:
+      - REDIS_REPLICATION_MODE=master
+
+volumes:
+  roomio_app_data:
+  roomio_app_test_data:

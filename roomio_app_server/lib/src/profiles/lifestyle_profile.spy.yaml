@@ -1,0 +1,8 @@
+class: LifestyleProfile
+table: lifestyle_profile
+fields:
+  name: String
+  sleepSchedule: String
+  noiseLevel: String
+  cleanliness: String
+  budget: int
