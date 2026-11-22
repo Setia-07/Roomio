@@ -17,30 +17,63 @@ abstract class LifestyleProfile
     implements _is.TableRow<int?>, _is.ProtocolSerialization {
   LifestyleProfile._({
     this.id,
-    required this.roomCode,
+    required this.userId,
+    required this.name,
+    required this.minBudget,
+    required this.maxBudget,
+    required this.preferredCity,
     required this.sleepSchedule,
-    required this.noiseLevel,
     required this.cleanliness,
-    required this.budget,
+    required this.foodHabit,
+    required this.socialHabit,
+    required this.smokingHabit,
+    required this.petHabit,
+    required this.hardFilterNoSmoking,
+    required this.hardFilterPetFriendly,
+    required this.hardFilterSameGender,
   });
 
   factory LifestyleProfile({
     int? id,
-    required String roomCode,
+    required String userId,
+    required String name,
+    required int minBudget,
+    required int maxBudget,
+    required String preferredCity,
     required String sleepSchedule,
-    required String noiseLevel,
     required String cleanliness,
-    required int budget,
+    required String foodHabit,
+    required String socialHabit,
+    required String smokingHabit,
+    required String petHabit,
+    required bool hardFilterNoSmoking,
+    required bool hardFilterPetFriendly,
+    required bool hardFilterSameGender,
   }) = _LifestyleProfileImpl;
 
   factory LifestyleProfile.fromJson(Map<String, dynamic> jsonSerialization) {
     return LifestyleProfile(
       id: jsonSerialization['id'] as int?,
-      roomCode: jsonSerialization['roomCode'] as String,
+      userId: jsonSerialization['userId'] as String,
+      name: jsonSerialization['name'] as String,
+      minBudget: jsonSerialization['minBudget'] as int,
+      maxBudget: jsonSerialization['maxBudget'] as int,
+      preferredCity: jsonSerialization['preferredCity'] as String,
       sleepSchedule: jsonSerialization['sleepSchedule'] as String,
-      noiseLevel: jsonSerialization['noiseLevel'] as String,
       cleanliness: jsonSerialization['cleanliness'] as String,
-      budget: jsonSerialization['budget'] as int,
+      foodHabit: jsonSerialization['foodHabit'] as String,
+      socialHabit: jsonSerialization['socialHabit'] as String,
+      smokingHabit: jsonSerialization['smokingHabit'] as String,
+      petHabit: jsonSerialization['petHabit'] as String,
+      hardFilterNoSmoking: _is.BoolJsonExtension.fromJson(
+        jsonSerialization['hardFilterNoSmoking'],
+      ),
+      hardFilterPetFriendly: _is.BoolJsonExtension.fromJson(
+        jsonSerialization['hardFilterPetFriendly'],
+      ),
+      hardFilterSameGender: _is.BoolJsonExtension.fromJson(
+        jsonSerialization['hardFilterSameGender'],
+      ),
     );
   }
 
@@ -51,15 +84,33 @@ abstract class LifestyleProfile
   @override
   int? id;
 
-  String roomCode;
+  String userId;
+
+  String name;
+
+  int minBudget;
+
+  int maxBudget;
+
+  String preferredCity;
 
   String sleepSchedule;
 
-  String noiseLevel;
-
   String cleanliness;
 
-  int budget;
+  String foodHabit;
+
+  String socialHabit;
+
+  String smokingHabit;
+
+  String petHabit;
+
+  bool hardFilterNoSmoking;
+
+  bool hardFilterPetFriendly;
+
+  bool hardFilterSameGender;
 
   @override
   _is.Table<int?> get table => t;
@@ -69,22 +120,40 @@ abstract class LifestyleProfile
   @_is.useResult
   LifestyleProfile copyWith({
     int? id,
-    String? roomCode,
+    String? userId,
+    String? name,
+    int? minBudget,
+    int? maxBudget,
+    String? preferredCity,
     String? sleepSchedule,
-    String? noiseLevel,
     String? cleanliness,
-    int? budget,
+    String? foodHabit,
+    String? socialHabit,
+    String? smokingHabit,
+    String? petHabit,
+    bool? hardFilterNoSmoking,
+    bool? hardFilterPetFriendly,
+    bool? hardFilterSameGender,
   });
   @override
   Map<String, dynamic> toJson() {
     return {
       '__className__': 'LifestyleProfile',
       if (id != null) 'id': id,
-      'roomCode': roomCode,
+      'userId': userId,
+      'name': name,
+      'minBudget': minBudget,
+      'maxBudget': maxBudget,
+      'preferredCity': preferredCity,
       'sleepSchedule': sleepSchedule,
-      'noiseLevel': noiseLevel,
       'cleanliness': cleanliness,
-      'budget': budget,
+      'foodHabit': foodHabit,
+      'socialHabit': socialHabit,
+      'smokingHabit': smokingHabit,
+      'petHabit': petHabit,
+      'hardFilterNoSmoking': hardFilterNoSmoking,
+      'hardFilterPetFriendly': hardFilterPetFriendly,
+      'hardFilterSameGender': hardFilterSameGender,
     };
   }
 
@@ -93,11 +162,20 @@ abstract class LifestyleProfile
     return {
       '__className__': 'LifestyleProfile',
       if (id != null) 'id': id,
-      'roomCode': roomCode,
+      'userId': userId,
+      'name': name,
+      'minBudget': minBudget,
+      'maxBudget': maxBudget,
+      'preferredCity': preferredCity,
       'sleepSchedule': sleepSchedule,
-      'noiseLevel': noiseLevel,
       'cleanliness': cleanliness,
-      'budget': budget,
+      'foodHabit': foodHabit,
+      'socialHabit': socialHabit,
+      'smokingHabit': smokingHabit,
+      'petHabit': petHabit,
+      'hardFilterNoSmoking': hardFilterNoSmoking,
+      'hardFilterPetFriendly': hardFilterPetFriendly,
+      'hardFilterSameGender': hardFilterSameGender,
     };
   }
 
@@ -134,18 +212,36 @@ class _Undefined {}
 class _LifestyleProfileImpl extends LifestyleProfile {
   _LifestyleProfileImpl({
     int? id,
-    required String roomCode,
+    required String userId,
+    required String name,
+    required int minBudget,
+    required int maxBudget,
+    required String preferredCity,
     required String sleepSchedule,
-    required String noiseLevel,
     required String cleanliness,
-    required int budget,
+    required String foodHabit,
+    required String socialHabit,
+    required String smokingHabit,
+    required String petHabit,
+    required bool hardFilterNoSmoking,
+    required bool hardFilterPetFriendly,
+    required bool hardFilterSameGender,
   }) : super._(
          id: id,
-         roomCode: roomCode,
+         userId: userId,
+         name: name,
+         minBudget: minBudget,
+         maxBudget: maxBudget,
+         preferredCity: preferredCity,
          sleepSchedule: sleepSchedule,
-         noiseLevel: noiseLevel,
          cleanliness: cleanliness,
-         budget: budget,
+         foodHabit: foodHabit,
+         socialHabit: socialHabit,
+         smokingHabit: smokingHabit,
+         petHabit: petHabit,
+         hardFilterNoSmoking: hardFilterNoSmoking,
+         hardFilterPetFriendly: hardFilterPetFriendly,
+         hardFilterSameGender: hardFilterSameGender,
        );
 
   /// Returns a shallow copy of this [LifestyleProfile]
@@ -154,19 +250,38 @@ class _LifestyleProfileImpl extends LifestyleProfile {
   @override
   LifestyleProfile copyWith({
     Object? id = _Undefined,
-    String? roomCode,
+    String? userId,
+    String? name,
+    int? minBudget,
+    int? maxBudget,
+    String? preferredCity,
     String? sleepSchedule,
-    String? noiseLevel,
     String? cleanliness,
-    int? budget,
+    String? foodHabit,
+    String? socialHabit,
+    String? smokingHabit,
+    String? petHabit,
+    bool? hardFilterNoSmoking,
+    bool? hardFilterPetFriendly,
+    bool? hardFilterSameGender,
   }) {
     return LifestyleProfile(
       id: id is int? ? id : this.id,
-      roomCode: roomCode ?? this.roomCode,
+      userId: userId ?? this.userId,
+      name: name ?? this.name,
+      minBudget: minBudget ?? this.minBudget,
+      maxBudget: maxBudget ?? this.maxBudget,
+      preferredCity: preferredCity ?? this.preferredCity,
       sleepSchedule: sleepSchedule ?? this.sleepSchedule,
-      noiseLevel: noiseLevel ?? this.noiseLevel,
       cleanliness: cleanliness ?? this.cleanliness,
-      budget: budget ?? this.budget,
+      foodHabit: foodHabit ?? this.foodHabit,
+      socialHabit: socialHabit ?? this.socialHabit,
+      smokingHabit: smokingHabit ?? this.smokingHabit,
+      petHabit: petHabit ?? this.petHabit,
+      hardFilterNoSmoking: hardFilterNoSmoking ?? this.hardFilterNoSmoking,
+      hardFilterPetFriendly:
+          hardFilterPetFriendly ?? this.hardFilterPetFriendly,
+      hardFilterSameGender: hardFilterSameGender ?? this.hardFilterSameGender,
     );
   }
 }
@@ -175,10 +290,31 @@ class LifestyleProfileUpdateTable
     extends _is.UpdateTable<LifestyleProfileTable> {
   LifestyleProfileUpdateTable(super.table);
 
-  _is.ColumnValue<String, String> roomCode(String value) => _is.ColumnValue(
-    table.roomCode,
+  _is.ColumnValue<String, String> userId(String value) => _is.ColumnValue(
+    table.userId,
     value,
   );
+
+  _is.ColumnValue<String, String> name(String value) => _is.ColumnValue(
+    table.name,
+    value,
+  );
+
+  _is.ColumnValue<int, int> minBudget(int value) => _is.ColumnValue(
+    table.minBudget,
+    value,
+  );
+
+  _is.ColumnValue<int, int> maxBudget(int value) => _is.ColumnValue(
+    table.maxBudget,
+    value,
+  );
+
+  _is.ColumnValue<String, String> preferredCity(String value) =>
+      _is.ColumnValue(
+        table.preferredCity,
+        value,
+      );
 
   _is.ColumnValue<String, String> sleepSchedule(String value) =>
       _is.ColumnValue(
@@ -186,68 +322,159 @@ class LifestyleProfileUpdateTable
         value,
       );
 
-  _is.ColumnValue<String, String> noiseLevel(String value) => _is.ColumnValue(
-    table.noiseLevel,
-    value,
-  );
-
   _is.ColumnValue<String, String> cleanliness(String value) => _is.ColumnValue(
     table.cleanliness,
     value,
   );
 
-  _is.ColumnValue<int, int> budget(int value) => _is.ColumnValue(
-    table.budget,
+  _is.ColumnValue<String, String> foodHabit(String value) => _is.ColumnValue(
+    table.foodHabit,
     value,
   );
+
+  _is.ColumnValue<String, String> socialHabit(String value) => _is.ColumnValue(
+    table.socialHabit,
+    value,
+  );
+
+  _is.ColumnValue<String, String> smokingHabit(String value) => _is.ColumnValue(
+    table.smokingHabit,
+    value,
+  );
+
+  _is.ColumnValue<String, String> petHabit(String value) => _is.ColumnValue(
+    table.petHabit,
+    value,
+  );
+
+  _is.ColumnValue<bool, bool> hardFilterNoSmoking(bool value) =>
+      _is.ColumnValue(
+        table.hardFilterNoSmoking,
+        value,
+      );
+
+  _is.ColumnValue<bool, bool> hardFilterPetFriendly(bool value) =>
+      _is.ColumnValue(
+        table.hardFilterPetFriendly,
+        value,
+      );
+
+  _is.ColumnValue<bool, bool> hardFilterSameGender(bool value) =>
+      _is.ColumnValue(
+        table.hardFilterSameGender,
+        value,
+      );
 }
 
 class LifestyleProfileTable extends _is.Table<int?> {
   LifestyleProfileTable({super.tableRelation})
     : super(tableName: 'lifestyle_profile') {
     updateTable = LifestyleProfileUpdateTable(this);
-    roomCode = _is.ColumnString(
-      'roomCode',
+    userId = _is.ColumnString(
+      'userId',
+      this,
+    );
+    name = _is.ColumnString(
+      'name',
+      this,
+    );
+    minBudget = _is.ColumnInt(
+      'minBudget',
+      this,
+    );
+    maxBudget = _is.ColumnInt(
+      'maxBudget',
+      this,
+    );
+    preferredCity = _is.ColumnString(
+      'preferredCity',
       this,
     );
     sleepSchedule = _is.ColumnString(
       'sleepSchedule',
       this,
     );
-    noiseLevel = _is.ColumnString(
-      'noiseLevel',
-      this,
-    );
     cleanliness = _is.ColumnString(
       'cleanliness',
       this,
     );
-    budget = _is.ColumnInt(
-      'budget',
+    foodHabit = _is.ColumnString(
+      'foodHabit',
+      this,
+    );
+    socialHabit = _is.ColumnString(
+      'socialHabit',
+      this,
+    );
+    smokingHabit = _is.ColumnString(
+      'smokingHabit',
+      this,
+    );
+    petHabit = _is.ColumnString(
+      'petHabit',
+      this,
+    );
+    hardFilterNoSmoking = _is.ColumnBool(
+      'hardFilterNoSmoking',
+      this,
+    );
+    hardFilterPetFriendly = _is.ColumnBool(
+      'hardFilterPetFriendly',
+      this,
+    );
+    hardFilterSameGender = _is.ColumnBool(
+      'hardFilterSameGender',
       this,
     );
   }
 
   late final LifestyleProfileUpdateTable updateTable;
 
-  late final _is.ColumnString roomCode;
+  late final _is.ColumnString userId;
+
+  late final _is.ColumnString name;
+
+  late final _is.ColumnInt minBudget;
+
+  late final _is.ColumnInt maxBudget;
+
+  late final _is.ColumnString preferredCity;
 
   late final _is.ColumnString sleepSchedule;
 
-  late final _is.ColumnString noiseLevel;
-
   late final _is.ColumnString cleanliness;
 
-  late final _is.ColumnInt budget;
+  late final _is.ColumnString foodHabit;
+
+  late final _is.ColumnString socialHabit;
+
+  late final _is.ColumnString smokingHabit;
+
+  late final _is.ColumnString petHabit;
+
+  late final _is.ColumnBool hardFilterNoSmoking;
+
+  late final _is.ColumnBool hardFilterPetFriendly;
+
+  late final _is.ColumnBool hardFilterSameGender;
 
   @override
   List<_is.Column> get columns => [
     id,
-    roomCode,
+    userId,
+    name,
+    minBudget,
+    maxBudget,
+    preferredCity,
     sleepSchedule,
-    noiseLevel,
     cleanliness,
-    budget,
+    foodHabit,
+    socialHabit,
+    smokingHabit,
+    petHabit,
+    hardFilterNoSmoking,
+    hardFilterPetFriendly,
+    hardFilterSameGender,
   ];
 }
 

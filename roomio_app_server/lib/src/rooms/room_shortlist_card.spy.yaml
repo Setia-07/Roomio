@@ -1,0 +1,8 @@
+class: RoomShortlistCard
+fields:
+  shortlistItem: RoomShortlistItem
+  listing: PropertyListing
+  likes: int
+  passes: int
+  superlikes: int
+  currentUserVote: String?

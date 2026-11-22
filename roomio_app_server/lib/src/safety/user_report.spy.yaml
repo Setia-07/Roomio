@@ -1,0 +1,9 @@
+class: UserReport
+table: user_report
+fields:
+  reporterUserId: String
+  targetEntity: String
+  targetId: String
+  reason: String
+  details: String?
+  createdAt: DateTime

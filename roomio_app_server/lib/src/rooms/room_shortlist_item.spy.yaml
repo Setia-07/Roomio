@@ -1,0 +1,12 @@
+class: RoomShortlistItem
+table: room_shortlist_item
+fields:
+  roomId: int
+  listingId: int
+  addedByUserId: String
+  addedByName: String
+  addedAt: DateTime
+indexes:
+  room_shortlist_idx:
+    fields: roomId, listingId
+    unique: true

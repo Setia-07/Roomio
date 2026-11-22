@@ -1,0 +1,10 @@
+class: SavedFlatmate
+table: saved_flatmate
+fields:
+  userId: String
+  targetUserId: String
+  savedAt: DateTime
+indexes:
+  saved_flatmate_user_idx:
+    fields: userId, targetUserId
+    unique: true

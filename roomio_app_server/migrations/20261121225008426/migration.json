@@ -1,0 +1,141 @@
+{
+  "__className__": "serverpod.DatabaseMigration",
+  "actions": [
+    {
+      "__className__": "serverpod.DatabaseMigrationAction",
+      "type": "alterTable",
+      "alterTable": {
+        "__className__": "serverpod.TableMigration",
+        "name": "property_listing",
+        "schema": "public",
+        "addColumns": [
+          {
+            "__className__": "serverpod.ColumnDefinition",
+            "name": "listingPurpose",
+            "fieldName": "listingPurpose",
+            "columnType": 0,
+            "isNullable": true,
+            "dartType": "String?"
+          },
+          {
+            "__className__": "serverpod.ColumnDefinition",
+            "name": "purchasePrice",
+            "fieldName": "purchasePrice",
+            "columnType": 6,
+            "isNullable": true,
+            "dartType": "int?"
+          },
+          {
+            "__className__": "serverpod.ColumnDefinition",
+            "name": "propertySizeSqFt",
+            "fieldName": "propertySizeSqFt",
+            "columnType": 6,
+            "isNullable": true,
+            "dartType": "int?"
+          },
+          {
+            "__className__": "serverpod.ColumnDefinition",
+            "name": "tenure",
+            "fieldName": "tenure",
+            "columnType": 0,
+            "isNullable": true,
+            "dartType": "String?"
+          },
+          {
+            "__className__": "serverpod.ColumnDefinition",
+            "name": "furnishingStatus",
+            "fieldName": "furnishingStatus",
+            "columnType": 0,
+            "isNullable": true,
+            "dartType": "String?"
+          },
+          {
+            "__className__": "serverpod.ColumnDefinition",
+            "name": "publisherRole",
+            "fieldName": "publisherRole",
+            "columnType": 0,
+            "isNullable": true,
+            "dartType": "String?"
+          },
+          {
+            "__className__": "serverpod.ColumnDefinition",
+            "name": "agencyName",
+            "fieldName": "agencyName",
+            "columnType": 0,
+            "isNullable": true,
+            "dartType": "String?"
+          },
+          {
+            "__className__": "serverpod.ColumnDefinition",
+            "name": "contactPhone",
+            "fieldName": "contactPhone",
+            "columnType": 0,
+            "isNullable": true,
+            "dartType": "String?"
+          },
+          {
+            "__className__": "serverpod.ColumnDefinition",
+            "name": "contactEmail",
+            "fieldName": "contactEmail",
+            "columnType": 0,
+            "isNullable": true,
+            "dartType": "String?"
+          },
+          {
+            "__className__": "serverpod.ColumnDefinition",
+            "name": "verificationStatus",
+            "fieldName": "verificationStatus",
+            "columnType": 0,
+            "isNullable": true,
+            "dartType": "String?"
+          }
+        ],
+        "deleteColumns": [],
+        "modifyColumns": [
+          {
+            "__className__": "serverpod.ColumnMigration",
+            "columnName": "roomType",
+            "addNullable": true,
+            "removeNullable": false,
+            "changeDefault": false
+          },
+          {
+            "__className__": "serverpod.ColumnMigration",
+            "columnName": "monthlyRent",
+            "addNullable": true,
+            "removeNullable": false,
+            "changeDefault": false
+          },
+          {
+            "__className__": "serverpod.ColumnMigration",
+            "columnName": "securityDeposit",
+            "addNullable": true,
+            "removeNullable": false,
+            "changeDefault": false
+          },
+          {
+            "__className__": "serverpod.ColumnMigration",
+            "columnName": "availableFrom",
+            "addNullable": true,
+            "removeNullable": false,
+            "changeDefault": false
+          },
+          {
+            "__className__": "serverpod.ColumnMigration",
+            "columnName": "houseRules",
+            "addNullable": true,
+            "removeNullable": false,
+            "changeDefault": false
+          }
+        ],
+        "addIndexes": [],
+        "deleteIndexes": [],
+        "addForeignKeys": [],
+        "deleteForeignKeys": [],
+        "warnings": []
+      }
+    }
+  ],
+  "warnings": [],
+  "migrationApiVersion": 1
+}

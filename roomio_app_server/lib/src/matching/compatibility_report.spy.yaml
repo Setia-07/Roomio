@@ -1,0 +1,16 @@
+class: CompatibilityReport
+fields:
+  targetUserId: String
+  targetName: String
+  overallScore: double
+  budgetScore: double
+  locationScore: double
+  cleanlinessScore: double
+  sleepScore: double
+  socialScore: double
+  foodScore: double
+  passedHardFilters: bool
+  hardFilterFailureReason: String?
+  alignments: List<String>
+  differences: List<String>
+  guidanceDisclaimer: String?

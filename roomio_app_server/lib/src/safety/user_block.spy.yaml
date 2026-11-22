@@ -1,0 +1,10 @@
+class: UserBlock
+table: user_block
+fields:
+  blockerUserId: String
+  blockedUserId: String
+  createdAt: DateTime
+indexes:
+  user_block_idx:
+    fields: blockerUserId, blockedUserId
+    unique: true

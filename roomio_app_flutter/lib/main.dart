@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 import 'client.dart';
+import 'roomio_app.dart';
 import 'screens/greetings_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initializeClient();
-  runApp(const MyApp());
+  runApp(const RoomioApp());
 }
 
 /// Builds a theme for the given [brightness].

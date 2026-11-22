@@ -1,0 +1,5 @@
+class: RoomDetailPayload
+fields:
+  room: MatchingRoom
+  members: List<RoomMember>
+  shortlist: List<RoomShortlistCard>

@@ -7,7 +7,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_DB: roomio_app
-      POSTGRES_PASSWORD: "4-8J7USlMW8kmgtMAY5VPHMJEmG9rM4U"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
     volumes:
       - roomio_app_data:/var/lib/postgresql/data
 
@@ -27,7 +27,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_DB: roomio_app_test
-      POSTGRES_PASSWORD: "G63OyhS3O5E7bNvR131hlrrRX1ZM62Za"
+      POSTGRES_PASSWORD: "${POSTGRES_TEST_PASSWORD}"
     volumes:
       - roomio_app_test_data:/var/lib/postgresql/data
 

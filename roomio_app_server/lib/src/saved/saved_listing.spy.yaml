@@ -1,0 +1,10 @@
+class: SavedListing
+table: saved_listing
+fields:
+  userId: String
+  listingId: int
+  savedAt: DateTime
+indexes:
+  saved_listing_user_idx:
+    fields: userId, listingId
+    unique: true

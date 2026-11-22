@@ -1,0 +1,1244 @@
+{
+  "__className__": "serverpod.DatabaseDefinition",
+  "schemaVersion": 2,
+  "moduleName": "roomio_app",
+  "tables": [
+    {
+      "__className__": "serverpod.TableDefinition",
+      "name": "app_notification",
+      "dartName": "AppNotification",
+      "module": "roomio_app",
+      "schema": "public",
+      "columns": [
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "id",
+          "fieldName": "id",
+          "columnType": 6,
+          "isNullable": false,
+          "columnDefault": "serial",
+          "dartType": "int?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "recipientUserId",
+          "fieldName": "recipientUserId",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "senderUserId",
+          "fieldName": "senderUserId",
+          "columnType": 0,
+          "isNullable": true,
+          "dartType": "String?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "title",
+          "fieldName": "title",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "body",
+          "fieldName": "body",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "type",
+          "fieldName": "type",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "relatedEntityId",
+          "fieldName": "relatedEntityId",
+          "columnType": 6,
+          "isNullable": true,
+          "dartType": "int?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "isRead",
+          "fieldName": "isRead",
+          "columnType": 1,
+          "isNullable": false,
+          "dartType": "bool"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "createdAt",
+          "fieldName": "createdAt",
+          "columnType": 4,
+          "isNullable": false,
+          "dartType": "DateTime"
+        }
+      ],
+      "foreignKeys": [],
+      "indexes": [
+        {
+          "__className__": "serverpod.IndexDefinition",
+          "indexName": "app_notification_recipient_idx",
+          "elements": [
+            {
+              "__className__": "serverpod.IndexElementDefinition",
+              "type": 0,
+              "definition": "recipientUserId"
+            }
+          ],
+          "type": "btree",
+          "isUnique": false,
+          "isPrimary": false
+        }
+      ],
+      "managed": true
+    },
+    {
+      "__className__": "serverpod.TableDefinition",
+      "name": "lifestyle_profile",
+      "dartName": "LifestyleProfile",
+      "module": "roomio_app",
+      "schema": "public",
+      "columns": [
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "id",
+          "fieldName": "id",
+          "columnType": 6,
+          "isNullable": false,
+          "columnDefault": "serial",
+          "dartType": "int?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "userId",
+          "fieldName": "userId",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "name",
+          "fieldName": "name",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "minBudget",
+          "fieldName": "minBudget",
+          "columnType": 6,
+          "isNullable": false,
+          "dartType": "int"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "maxBudget",
+          "fieldName": "maxBudget",
+          "columnType": 6,
+          "isNullable": false,
+          "dartType": "int"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "preferredCity",
+          "fieldName": "preferredCity",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "sleepSchedule",
+          "fieldName": "sleepSchedule",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "cleanliness",
+          "fieldName": "cleanliness",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "foodHabit",
+          "fieldName": "foodHabit",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "socialHabit",
+          "fieldName": "socialHabit",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "smokingHabit",
+          "fieldName": "smokingHabit",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "petHabit",
+          "fieldName": "petHabit",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "hardFilterNoSmoking",
+          "fieldName": "hardFilterNoSmoking",
+          "columnType": 1,
+          "isNullable": false,
+          "dartType": "bool"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "hardFilterPetFriendly",
+          "fieldName": "hardFilterPetFriendly",
+          "columnType": 1,
+          "isNullable": false,
+          "dartType": "bool"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "hardFilterSameGender",
+          "fieldName": "hardFilterSameGender",
+          "columnType": 1,
+          "isNullable": false,
+          "dartType": "bool"
+        }
+      ],
+      "foreignKeys": [],
+      "indexes": [
+        {
+          "__className__": "serverpod.IndexDefinition",
+          "indexName": "lifestyle_user_id_idx",
+          "elements": [
+            {
+              "__className__": "serverpod.IndexElementDefinition",
+              "type": 0,
+              "definition": "userId"
+            }
+          ],
+          "type": "btree",
+          "isUnique": true,
+          "isPrimary": false
+        }
+      ],
+      "managed": true
+    },
+    {
+      "__className__": "serverpod.TableDefinition",
+      "name": "matching_room",
+      "dartName": "MatchingRoom",
+      "module": "roomio_app",
+      "schema": "public",
+      "columns": [
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "id",
+          "fieldName": "id",
+          "columnType": 6,
+          "isNullable": false,
+          "columnDefault": "serial",
+          "dartType": "int?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "creatorUserId",
+          "fieldName": "creatorUserId",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "name",
+          "fieldName": "name",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "inviteCode",
+          "fieldName": "inviteCode",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "createdAt",
+          "fieldName": "createdAt",
+          "columnType": 4,
+          "isNullable": false,
+          "dartType": "DateTime"
+        }
+      ],
+      "foreignKeys": [],
+      "indexes": [
+        {
+          "__className__": "serverpod.IndexDefinition",
+          "indexName": "matching_room_code_idx",
+          "elements": [
+            {
+              "__className__": "serverpod.IndexElementDefinition",
+              "type": 0,
+              "definition": "inviteCode"
+            }
+          ],
+          "type": "btree",
+          "isUnique": true,
+          "isPrimary": false
+        }
+      ],
+      "managed": true
+    },
+    {
+      "__className__": "serverpod.TableDefinition",
+      "name": "property_listing",
+      "dartName": "PropertyListing",
+      "module": "roomio_app",
+      "schema": "public",
+      "columns": [
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "id",
+          "fieldName": "id",
+          "columnType": 6,
+          "isNullable": false,
+          "columnDefault": "serial",
+          "dartType": "int?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "ownerUserId",
+          "fieldName": "ownerUserId",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "title",
+          "fieldName": "title",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "description",
+          "fieldName": "description",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "propertyType",
+          "fieldName": "propertyType",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "roomType",
+          "fieldName": "roomType",
+          "columnType": 0,
+          "isNullable": true,
+          "dartType": "String?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "listingPurpose",
+          "fieldName": "listingPurpose",
+          "columnType": 0,
+          "isNullable": true,
+          "dartType": "String?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "monthlyRent",
+          "fieldName": "monthlyRent",
+          "columnType": 6,
+          "isNullable": true,
+          "dartType": "int?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "securityDeposit",
+          "fieldName": "securityDeposit",
+          "columnType": 6,
+          "isNullable": true,
+          "dartType": "int?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "purchasePrice",
+          "fieldName": "purchasePrice",
+          "columnType": 6,
+          "isNullable": true,
+          "dartType": "int?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "propertySizeSqFt",
+          "fieldName": "propertySizeSqFt",
+          "columnType": 6,
+          "isNullable": true,
+          "dartType": "int?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "tenure",
+          "fieldName": "tenure",
+          "columnType": 0,
+          "isNullable": true,
+          "dartType": "String?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "furnishingStatus",
+          "fieldName": "furnishingStatus",
+          "columnType": 0,
+          "isNullable": true,
+          "dartType": "String?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "city",
+          "fieldName": "city",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "neighborhood",
+          "fieldName": "neighborhood",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "approximateAddress",
+          "fieldName": "approximateAddress",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "totalBedrooms",
+          "fieldName": "totalBedrooms",
+          "columnType": 6,
+          "isNullable": false,
+          "dartType": "int"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "totalBathrooms",
+          "fieldName": "totalBathrooms",
+          "columnType": 6,
+          "isNullable": false,
+          "dartType": "int"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "availableFrom",
+          "fieldName": "availableFrom",
+          "columnType": 4,
+          "isNullable": true,
+          "dartType": "DateTime?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "imageUrls",
+          "fieldName": "imageUrls",
+          "columnType": 8,
+          "isNullable": false,
+          "dartType": "List<String>"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "amenities",
+          "fieldName": "amenities",
+          "columnType": 8,
+          "isNullable": false,
+          "dartType": "List<String>"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "houseRules",
+          "fieldName": "houseRules",
+          "columnType": 8,
+          "isNullable": true,
+          "dartType": "List<String>?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "publisherRole",
+          "fieldName": "publisherRole",
+          "columnType": 0,
+          "isNullable": true,
+          "dartType": "String?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "agencyName",
+          "fieldName": "agencyName",
+          "columnType": 0,
+          "isNullable": true,
+          "dartType": "String?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "contactPhone",
+          "fieldName": "contactPhone",
+          "columnType": 0,
+          "isNullable": true,
+          "dartType": "String?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "contactEmail",
+          "fieldName": "contactEmail",
+          "columnType": 0,
+          "isNullable": true,
+          "dartType": "String?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "verificationStatus",
+          "fieldName": "verificationStatus",
+          "columnType": 0,
+          "isNullable": true,
+          "dartType": "String?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "isActive",
+          "fieldName": "isActive",
+          "columnType": 1,
+          "isNullable": false,
+          "dartType": "bool"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "createdAt",
+          "fieldName": "createdAt",
+          "columnType": 4,
+          "isNullable": false,
+          "dartType": "DateTime"
+        }
+      ],
+      "foreignKeys": [],
+      "indexes": [
+        {
+          "__className__": "serverpod.IndexDefinition",
+          "indexName": "listing_owner_idx",
+          "elements": [
+            {
+              "__className__": "serverpod.IndexElementDefinition",
+              "type": 0,
+              "definition": "ownerUserId"
+            }
+          ],
+          "type": "btree",
+          "isUnique": false,
+          "isPrimary": false
+        },
+        {
+          "__className__": "serverpod.IndexDefinition",
+          "indexName": "listing_city_idx",
+          "elements": [
+            {
+              "__className__": "serverpod.IndexElementDefinition",
+              "type": 0,
+              "definition": "city"
+            }
+          ],
+          "type": "btree",
+          "isUnique": false,
+          "isPrimary": false
+        }
+      ],
+      "managed": true
+    },
+    {
+      "__className__": "serverpod.TableDefinition",
+      "name": "room_member",
+      "dartName": "RoomMember",
+      "module": "roomio_app",
+      "schema": "public",
+      "columns": [
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "id",
+          "fieldName": "id",
+          "columnType": 6,
+          "isNullable": false,
+          "columnDefault": "serial",
+          "dartType": "int?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "roomId",
+          "fieldName": "roomId",
+          "columnType": 6,
+          "isNullable": false,
+          "dartType": "int"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "userId",
+          "fieldName": "userId",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "userName",
+          "fieldName": "userName",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "joinedAt",
+          "fieldName": "joinedAt",
+          "columnType": 4,
+          "isNullable": false,
+          "dartType": "DateTime"
+        }
+      ],
+      "foreignKeys": [],
+      "indexes": [
+        {
+          "__className__": "serverpod.IndexDefinition",
+          "indexName": "room_member_idx",
+          "elements": [
+            {
+              "__className__": "serverpod.IndexElementDefinition",
+              "type": 0,
+              "definition": "roomId"
+            },
+            {
+              "__className__": "serverpod.IndexElementDefinition",
+              "type": 0,
+              "definition": "userId"
+            }
+          ],
+          "type": "btree",
+          "isUnique": true,
+          "isPrimary": false
+        }
+      ],
+      "managed": true
+    },
+    {
+      "__className__": "serverpod.TableDefinition",
+      "name": "room_shortlist_item",
+      "dartName": "RoomShortlistItem",
+      "module": "roomio_app",
+      "schema": "public",
+      "columns": [
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "id",
+          "fieldName": "id",
+          "columnType": 6,
+          "isNullable": false,
+          "columnDefault": "serial",
+          "dartType": "int?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "roomId",
+          "fieldName": "roomId",
+          "columnType": 6,
+          "isNullable": false,
+          "dartType": "int"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "listingId",
+          "fieldName": "listingId",
+          "columnType": 6,
+          "isNullable": false,
+          "dartType": "int"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "addedByUserId",
+          "fieldName": "addedByUserId",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "addedByName",
+          "fieldName": "addedByName",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "addedAt",
+          "fieldName": "addedAt",
+          "columnType": 4,
+          "isNullable": false,
+          "dartType": "DateTime"
+        }
+      ],
+      "foreignKeys": [],
+      "indexes": [
+        {
+          "__className__": "serverpod.IndexDefinition",
+          "indexName": "room_shortlist_idx",
+          "elements": [
+            {
+              "__className__": "serverpod.IndexElementDefinition",
+              "type": 0,
+              "definition": "roomId"
+            },
+            {
+              "__className__": "serverpod.IndexElementDefinition",
+              "type": 0,
+              "definition": "listingId"
+            }
+          ],
+          "type": "btree",
+          "isUnique": true,
+          "isPrimary": false
+        }
+      ],
+      "managed": true
+    },
+    {
+      "__className__": "serverpod.TableDefinition",
+      "name": "room_vote",
+      "dartName": "RoomVote",
+      "module": "roomio_app",
+      "schema": "public",
+      "columns": [
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "id",
+          "fieldName": "id",
+          "columnType": 6,
+          "isNullable": false,
+          "columnDefault": "serial",
+          "dartType": "int?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "shortlistItemId",
+          "fieldName": "shortlistItemId",
+          "columnType": 6,
+          "isNullable": false,
+          "dartType": "int"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "userId",
+          "fieldName": "userId",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "voteType",
+          "fieldName": "voteType",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "votedAt",
+          "fieldName": "votedAt",
+          "columnType": 4,
+          "isNullable": false,
+          "dartType": "DateTime"
+        }
+      ],
+      "foreignKeys": [],
+      "indexes": [
+        {
+          "__className__": "serverpod.IndexDefinition",
+          "indexName": "room_vote_idx",
+          "elements": [
+            {
+              "__className__": "serverpod.IndexElementDefinition",
+              "type": 0,
+              "definition": "shortlistItemId"
+            },
+            {
+              "__className__": "serverpod.IndexElementDefinition",
+              "type": 0,
+              "definition": "userId"
+            }
+          ],
+          "type": "btree",
+          "isUnique": true,
+          "isPrimary": false
+        }
+      ],
+      "managed": true
+    },
+    {
+      "__className__": "serverpod.TableDefinition",
+      "name": "saved_flatmate",
+      "dartName": "SavedFlatmate",
+      "module": "roomio_app",
+      "schema": "public",
+      "columns": [
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "id",
+          "fieldName": "id",
+          "columnType": 6,
+          "isNullable": false,
+          "columnDefault": "serial",
+          "dartType": "int?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "userId",
+          "fieldName": "userId",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "targetUserId",
+          "fieldName": "targetUserId",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "savedAt",
+          "fieldName": "savedAt",
+          "columnType": 4,
+          "isNullable": false,
+          "dartType": "DateTime"
+        }
+      ],
+      "foreignKeys": [],
+      "indexes": [
+        {
+          "__className__": "serverpod.IndexDefinition",
+          "indexName": "saved_flatmate_user_idx",
+          "elements": [
+            {
+              "__className__": "serverpod.IndexElementDefinition",
+              "type": 0,
+              "definition": "userId"
+            },
+            {
+              "__className__": "serverpod.IndexElementDefinition",
+              "type": 0,
+              "definition": "targetUserId"
+            }
+          ],
+          "type": "btree",
+          "isUnique": true,
+          "isPrimary": false
+        }
+      ],
+      "managed": true
+    },
+    {
+      "__className__": "serverpod.TableDefinition",
+      "name": "saved_listing",
+      "dartName": "SavedListing",
+      "module": "roomio_app",
+      "schema": "public",
+      "columns": [
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "id",
+          "fieldName": "id",
+          "columnType": 6,
+          "isNullable": false,
+          "columnDefault": "serial",
+          "dartType": "int?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "userId",
+          "fieldName": "userId",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "listingId",
+          "fieldName": "listingId",
+          "columnType": 6,
+          "isNullable": false,
+          "dartType": "int"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "savedAt",
+          "fieldName": "savedAt",
+          "columnType": 4,
+          "isNullable": false,
+          "dartType": "DateTime"
+        }
+      ],
+      "foreignKeys": [],
+      "indexes": [
+        {
+          "__className__": "serverpod.IndexDefinition",
+          "indexName": "saved_listing_user_idx",
+          "elements": [
+            {
+              "__className__": "serverpod.IndexElementDefinition",
+              "type": 0,
+              "definition": "userId"
+            },
+            {
+              "__className__": "serverpod.IndexElementDefinition",
+              "type": 0,
+              "definition": "listingId"
+            }
+          ],
+          "type": "btree",
+          "isUnique": true,
+          "isPrimary": false
+        }
+      ],
+      "managed": true
+    },
+    {
+      "__className__": "serverpod.TableDefinition",
+      "name": "user_block",
+      "dartName": "UserBlock",
+      "module": "roomio_app",
+      "schema": "public",
+      "columns": [
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "id",
+          "fieldName": "id",
+          "columnType": 6,
+          "isNullable": false,
+          "columnDefault": "serial",
+          "dartType": "int?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "blockerUserId",
+          "fieldName": "blockerUserId",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "blockedUserId",
+          "fieldName": "blockedUserId",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "createdAt",
+          "fieldName": "createdAt",
+          "columnType": 4,
+          "isNullable": false,
+          "dartType": "DateTime"
+        }
+      ],
+      "foreignKeys": [],
+      "indexes": [
+        {
+          "__className__": "serverpod.IndexDefinition",
+          "indexName": "user_block_idx",
+          "elements": [
+            {
+              "__className__": "serverpod.IndexElementDefinition",
+              "type": 0,
+              "definition": "blockerUserId"
+            },
+            {
+              "__className__": "serverpod.IndexElementDefinition",
+              "type": 0,
+              "definition": "blockedUserId"
+            }
+          ],
+          "type": "btree",
+          "isUnique": true,
+          "isPrimary": false
+        }
+      ],
+      "managed": true
+    },
+    {
+      "__className__": "serverpod.TableDefinition",
+      "name": "user_profile",
+      "dartName": "UserProfile",
+      "module": "roomio_app",
+      "schema": "public",
+      "columns": [
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "id",
+          "fieldName": "id",
+          "columnType": 6,
+          "isNullable": false,
+          "columnDefault": "serial",
+          "dartType": "int?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "userId",
+          "fieldName": "userId",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "displayName",
+          "fieldName": "displayName",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "bio",
+          "fieldName": "bio",
+          "columnType": 0,
+          "isNullable": true,
+          "dartType": "String?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "age",
+          "fieldName": "age",
+          "columnType": 6,
+          "isNullable": false,
+          "dartType": "int"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "gender",
+          "fieldName": "gender",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "occupation",
+          "fieldName": "occupation",
+          "columnType": 0,
+          "isNullable": true,
+          "dartType": "String?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "city",
+          "fieldName": "city",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "avatarUrl",
+          "fieldName": "avatarUrl",
+          "columnType": 0,
+          "isNullable": true,
+          "dartType": "String?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "isLookingForFlatmates",
+          "fieldName": "isLookingForFlatmates",
+          "columnType": 1,
+          "isNullable": false,
+          "dartType": "bool"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "isLookingForRoom",
+          "fieldName": "isLookingForRoom",
+          "columnType": 1,
+          "isNullable": false,
+          "dartType": "bool"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "createdAt",
+          "fieldName": "createdAt",
+          "columnType": 4,
+          "isNullable": false,
+          "dartType": "DateTime"
+        }
+      ],
+      "foreignKeys": [],
+      "indexes": [
+        {
+          "__className__": "serverpod.IndexDefinition",
+          "indexName": "user_profile_user_id_idx",
+          "elements": [
+            {
+              "__className__": "serverpod.IndexElementDefinition",
+              "type": 0,
+              "definition": "userId"
+            }
+          ],
+          "type": "btree",
+          "isUnique": true,
+          "isPrimary": false
+        },
+        {
+          "__className__": "serverpod.IndexDefinition",
+          "indexName": "user_profile_city_idx",
+          "elements": [
+            {
+              "__className__": "serverpod.IndexElementDefinition",
+              "type": 0,
+              "definition": "city"
+            }
+          ],
+          "type": "btree",
+          "isUnique": false,
+          "isPrimary": false
+        }
+      ],
+      "managed": true
+    },
+    {
+      "__className__": "serverpod.TableDefinition",
+      "name": "user_report",
+      "dartName": "UserReport",
+      "module": "roomio_app",
+      "schema": "public",
+      "columns": [
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "id",
+          "fieldName": "id",
+          "columnType": 6,
+          "isNullable": false,
+          "columnDefault": "serial",
+          "dartType": "int?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "reporterUserId",
+          "fieldName": "reporterUserId",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "targetEntity",
+          "fieldName": "targetEntity",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "targetId",
+          "fieldName": "targetId",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "reason",
+          "fieldName": "reason",
+          "columnType": 0,
+          "isNullable": false,
+          "dartType": "String"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "details",
+          "fieldName": "details",
+          "columnType": 0,
+          "isNullable": true,
+          "dartType": "String?"
+        },
+        {
+          "__className__": "serverpod.ColumnDefinition",
+          "name": "createdAt",
+          "fieldName": "createdAt",
+          "columnType": 4,
+          "isNullable": false,
+          "dartType": "DateTime"
+        }
+      ],
+      "foreignKeys": [],
+      "indexes": [],
+      "managed": true
+    }
+  ],
+  "installedModules": [
+    {
+      "__className__": "serverpod.DatabaseMigrationVersion",
+      "module": "serverpod",
+      "version": "20260824182259319"
+    },
+    {
+      "__className__": "serverpod.DatabaseMigrationVersion",
+      "module": "serverpod_auth_idp",
+      "version": "20261015164015382"
+    },
+    {
+      "__className__": "serverpod.DatabaseMigrationVersion",
+      "module": "serverpod_auth_core",
+      "version": "20260924105232991"
+    }
+  ],
+  "migrationApiVersion": 1
+}
