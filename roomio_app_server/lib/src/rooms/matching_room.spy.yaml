@@ -1,0 +1,11 @@
+class: MatchingRoom
+table: matching_room
+fields:
+  creatorUserId: String
+  name: String
+  inviteCode: String
+  createdAt: DateTime
+indexes:
+  matching_room_code_idx:
+    fields: inviteCode
+    unique: true

@@ -1,0 +1,4 @@
+exception: RoomioException
+fields:
+  message: String
+  code: int

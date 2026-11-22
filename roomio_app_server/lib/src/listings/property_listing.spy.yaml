@@ -1,0 +1,36 @@
+class: PropertyListing
+table: property_listing
+fields:
+  ownerUserId: String
+  title: String
+  description: String
+  propertyType: String
+  roomType: String?
+  listingPurpose: String?
+  monthlyRent: int?
+  securityDeposit: int?
+  purchasePrice: int?
+  propertySizeSqFt: int?
+  tenure: String?
+  furnishingStatus: String?
+  city: String
+  neighborhood: String
+  approximateAddress: String
+  totalBedrooms: int
+  totalBathrooms: int
+  availableFrom: DateTime?
+  imageUrls: List<String>
+  amenities: List<String>
+  houseRules: List<String>?
+  publisherRole: String?
+  agencyName: String?
+  contactPhone: String?
+  contactEmail: String?
+  verificationStatus: String?
+  isActive: bool
+  createdAt: DateTime
+indexes:
+  listing_owner_idx:
+    fields: ownerUserId
+  listing_city_idx:
+    fields: city

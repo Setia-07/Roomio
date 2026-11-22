@@ -1,0 +1,60 @@
+emailIdp:
+  - startOtpLogin:
+  - verifyOtpLoginCode:
+  - finishOtpLogin:
+  - finishOtpRegistration:
+  - login:
+  - startRegistration:
+  - verifyRegistrationCode:
+  - finishRegistration:
+  - startPasswordReset:
+  - verifyPasswordResetCode:
+  - finishPasswordReset:
+  - hasAccount:
+jwtRefresh:
+  - refreshAccessToken:
+greeting:
+  - hello:
+listing:
+  - createListing:
+  - updateListing:
+  - deleteListing:
+  - searchListings:
+  - getMyListings:
+  - getListingDetails:
+matching:
+  - findFlatmates:
+  - getCompatibility:
+notification:
+  - getMyNotifications:
+  - markAsRead:
+  - markAllAsRead:
+  - getUnreadCount:
+profile:
+  - saveUserProfile:
+  - getMyUserProfile:
+  - getUserProfile:
+  - saveLifestyleProfile:
+  - getMyLifestyleProfile:
+  - saveProfile:
+  - getAllProfiles:
+room:
+  - createRoom:
+  - joinRoomByInviteCode:
+  - leaveRoom:
+  - getMyRooms:
+  - getRoomDetails:
+  - shortlistListing:
+  - castVote:
+  - sendRoomMessage:
+  - streamRoomEvents:
+safety:
+  - blockUser:
+  - unblockUser:
+  - getBlockedUserIds:
+  - reportEntity:
+saved:
+  - toggleSaveListing:
+  - toggleSaveFlatmate:
+  - getMySavedListings:
+  - getMySavedFlatmates:

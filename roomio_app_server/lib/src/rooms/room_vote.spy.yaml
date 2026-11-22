@@ -1,0 +1,11 @@
+class: RoomVote
+table: room_vote
+fields:
+  shortlistItemId: int
+  userId: String
+  voteType: String
+  votedAt: DateTime
+indexes:
+  room_vote_idx:
+    fields: shortlistItemId, userId
+    unique: true

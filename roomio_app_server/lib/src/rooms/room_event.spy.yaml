@@ -1,0 +1,8 @@
+class: RoomEvent
+fields:
+  roomId: int
+  eventType: String
+  senderUserId: String
+  senderName: String
+  message: String?
+  timestamp: DateTime

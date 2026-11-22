@@ -1,8 +1,21 @@
 class: LifestyleProfile
 table: lifestyle_profile
 fields:
-  roomCode: String
+  userId: String
+  name: String
+  minBudget: int
+  maxBudget: int
+  preferredCity: String
   sleepSchedule: String
-  noiseLevel: String
   cleanliness: String
-  budget: int
+  foodHabit: String
+  socialHabit: String
+  smokingHabit: String
+  petHabit: String
+  hardFilterNoSmoking: bool
+  hardFilterPetFriendly: bool
+  hardFilterSameGender: bool
+indexes:
+  lifestyle_user_id_idx:
+    fields: userId
+    unique: true

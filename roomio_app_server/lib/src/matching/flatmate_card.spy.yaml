@@ -1,0 +1,5 @@
+class: FlatmateCard
+fields:
+  profile: UserProfile
+  lifestyle: LifestyleProfile
+  compatibility: CompatibilityReport

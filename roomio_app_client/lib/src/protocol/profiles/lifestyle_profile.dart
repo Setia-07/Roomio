@@ -16,30 +16,63 @@ abstract class LifestyleProfile
     implements _isc.SerializableModel, _isc.ProtocolSerialization {
   LifestyleProfile._({
     this.id,
-    required this.roomCode,
+    required this.userId,
+    required this.name,
+    required this.minBudget,
+    required this.maxBudget,
+    required this.preferredCity,
     required this.sleepSchedule,
-    required this.noiseLevel,
     required this.cleanliness,
-    required this.budget,
+    required this.foodHabit,
+    required this.socialHabit,
+    required this.smokingHabit,
+    required this.petHabit,
+    required this.hardFilterNoSmoking,
+    required this.hardFilterPetFriendly,
+    required this.hardFilterSameGender,
   });
 
   factory LifestyleProfile({
     int? id,
-    required String roomCode,
+    required String userId,
+    required String name,
+    required int minBudget,
+    required int maxBudget,
+    required String preferredCity,
     required String sleepSchedule,
-    required String noiseLevel,
     required String cleanliness,
-    required int budget,
+    required String foodHabit,
+    required String socialHabit,
+    required String smokingHabit,
+    required String petHabit,
+    required bool hardFilterNoSmoking,
+    required bool hardFilterPetFriendly,
+    required bool hardFilterSameGender,
   }) = _LifestyleProfileImpl;
 
   factory LifestyleProfile.fromJson(Map<String, dynamic> jsonSerialization) {
     return LifestyleProfile(
       id: jsonSerialization['id'] as int?,
-      roomCode: jsonSerialization['roomCode'] as String,
+      userId: jsonSerialization['userId'] as String,
+      name: jsonSerialization['name'] as String,
+      minBudget: jsonSerialization['minBudget'] as int,
+      maxBudget: jsonSerialization['maxBudget'] as int,
+      preferredCity: jsonSerialization['preferredCity'] as String,
       sleepSchedule: jsonSerialization['sleepSchedule'] as String,
-      noiseLevel: jsonSerialization['noiseLevel'] as String,
       cleanliness: jsonSerialization['cleanliness'] as String,
-      budget: jsonSerialization['budget'] as int,
+      foodHabit: jsonSerialization['foodHabit'] as String,
+      socialHabit: jsonSerialization['socialHabit'] as String,
+      smokingHabit: jsonSerialization['smokingHabit'] as String,
+      petHabit: jsonSerialization['petHabit'] as String,
+      hardFilterNoSmoking: _isc.BoolJsonExtension.fromJson(
+        jsonSerialization['hardFilterNoSmoking'],
+      ),
+      hardFilterPetFriendly: _isc.BoolJsonExtension.fromJson(
+        jsonSerialization['hardFilterPetFriendly'],
+      ),
+      hardFilterSameGender: _isc.BoolJsonExtension.fromJson(
+        jsonSerialization['hardFilterSameGender'],
+      ),
     );
   }
 
@@ -48,37 +81,73 @@ abstract class LifestyleProfile
   /// the id will be null.
   int? id;
 
-  String roomCode;
+  String userId;
+
+  String name;
+
+  int minBudget;
+
+  int maxBudget;
+
+  String preferredCity;
 
   String sleepSchedule;
 
-  String noiseLevel;
-
   String cleanliness;
 
-  int budget;
+  String foodHabit;
+
+  String socialHabit;
+
+  String smokingHabit;
+
+  String petHabit;
+
+  bool hardFilterNoSmoking;
+
+  bool hardFilterPetFriendly;
+
+  bool hardFilterSameGender;
 
   /// Returns a shallow copy of this [LifestyleProfile]
   /// with some or all fields replaced by the given arguments.
   @_isc.useResult
   LifestyleProfile copyWith({
     int? id,
-    String? roomCode,
+    String? userId,
+    String? name,
+    int? minBudget,
+    int? maxBudget,
+    String? preferredCity,
     String? sleepSchedule,
-    String? noiseLevel,
     String? cleanliness,
-    int? budget,
+    String? foodHabit,
+    String? socialHabit,
+    String? smokingHabit,
+    String? petHabit,
+    bool? hardFilterNoSmoking,
+    bool? hardFilterPetFriendly,
+    bool? hardFilterSameGender,
   });
   @override
   Map<String, dynamic> toJson() {
     return {
       '__className__': 'LifestyleProfile',
       if (id != null) 'id': id,
-      'roomCode': roomCode,
+      'userId': userId,
+      'name': name,
+      'minBudget': minBudget,
+      'maxBudget': maxBudget,
+      'preferredCity': preferredCity,
       'sleepSchedule': sleepSchedule,
-      'noiseLevel': noiseLevel,
       'cleanliness': cleanliness,
-      'budget': budget,
+      'foodHabit': foodHabit,
+      'socialHabit': socialHabit,
+      'smokingHabit': smokingHabit,
+      'petHabit': petHabit,
+      'hardFilterNoSmoking': hardFilterNoSmoking,
+      'hardFilterPetFriendly': hardFilterPetFriendly,
+      'hardFilterSameGender': hardFilterSameGender,
     };
   }
 
@@ -87,11 +156,20 @@ abstract class LifestyleProfile
     return {
       '__className__': 'LifestyleProfile',
       if (id != null) 'id': id,
-      'roomCode': roomCode,
+      'userId': userId,
+      'name': name,
+      'minBudget': minBudget,
+      'maxBudget': maxBudget,
+      'preferredCity': preferredCity,
       'sleepSchedule': sleepSchedule,
-      'noiseLevel': noiseLevel,
       'cleanliness': cleanliness,
-      'budget': budget,
+      'foodHabit': foodHabit,
+      'socialHabit': socialHabit,
+      'smokingHabit': smokingHabit,
+      'petHabit': petHabit,
+      'hardFilterNoSmoking': hardFilterNoSmoking,
+      'hardFilterPetFriendly': hardFilterPetFriendly,
+      'hardFilterSameGender': hardFilterSameGender,
     };
   }
 
@@ -106,18 +184,36 @@ class _Undefined {}
 class _LifestyleProfileImpl extends LifestyleProfile {
   _LifestyleProfileImpl({
     int? id,
-    required String roomCode,
+    required String userId,
+    required String name,
+    required int minBudget,
+    required int maxBudget,
+    required String preferredCity,
     required String sleepSchedule,
-    required String noiseLevel,
     required String cleanliness,
-    required int budget,
+    required String foodHabit,
+    required String socialHabit,
+    required String smokingHabit,
+    required String petHabit,
+    required bool hardFilterNoSmoking,
+    required bool hardFilterPetFriendly,
+    required bool hardFilterSameGender,
   }) : super._(
          id: id,
-         roomCode: roomCode,
+         userId: userId,
+         name: name,
+         minBudget: minBudget,
+         maxBudget: maxBudget,
+         preferredCity: preferredCity,
          sleepSchedule: sleepSchedule,
-         noiseLevel: noiseLevel,
          cleanliness: cleanliness,
-         budget: budget,
+         foodHabit: foodHabit,
+         socialHabit: socialHabit,
+         smokingHabit: smokingHabit,
+         petHabit: petHabit,
+         hardFilterNoSmoking: hardFilterNoSmoking,
+         hardFilterPetFriendly: hardFilterPetFriendly,
+         hardFilterSameGender: hardFilterSameGender,
        );
 
   /// Returns a shallow copy of this [LifestyleProfile]
@@ -126,19 +222,38 @@ class _LifestyleProfileImpl extends LifestyleProfile {
   @override
   LifestyleProfile copyWith({
     Object? id = _Undefined,
-    String? roomCode,
+    String? userId,
+    String? name,
+    int? minBudget,
+    int? maxBudget,
+    String? preferredCity,
     String? sleepSchedule,
-    String? noiseLevel,
     String? cleanliness,
-    int? budget,
+    String? foodHabit,
+    String? socialHabit,
+    String? smokingHabit,
+    String? petHabit,
+    bool? hardFilterNoSmoking,
+    bool? hardFilterPetFriendly,
+    bool? hardFilterSameGender,
   }) {
     return LifestyleProfile(
       id: id is int? ? id : this.id,
-      roomCode: roomCode ?? this.roomCode,
+      userId: userId ?? this.userId,
+      name: name ?? this.name,
+      minBudget: minBudget ?? this.minBudget,
+      maxBudget: maxBudget ?? this.maxBudget,
+      preferredCity: preferredCity ?? this.preferredCity,
       sleepSchedule: sleepSchedule ?? this.sleepSchedule,
-      noiseLevel: noiseLevel ?? this.noiseLevel,
       cleanliness: cleanliness ?? this.cleanliness,
-      budget: budget ?? this.budget,
+      foodHabit: foodHabit ?? this.foodHabit,
+      socialHabit: socialHabit ?? this.socialHabit,
+      smokingHabit: smokingHabit ?? this.smokingHabit,
+      petHabit: petHabit ?? this.petHabit,
+      hardFilterNoSmoking: hardFilterNoSmoking ?? this.hardFilterNoSmoking,
+      hardFilterPetFriendly:
+          hardFilterPetFriendly ?? this.hardFilterPetFriendly,
+      hardFilterSameGender: hardFilterSameGender ?? this.hardFilterSameGender,
     );
   }
 }
